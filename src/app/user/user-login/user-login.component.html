@@ -1,0 +1,36 @@
+<div class="ui container">
+  <h2 class="ui centered text header">用户登录</h2>
+  <div class="ui two column middle aligned centered very relaxed grid segment">
+    <div class="one column row">
+      <div class="column">
+        <div class="ui centered dividing header">
+          <i class="home icon"></i>
+        </div>
+      </div>
+    </div>
+    <div class="two column row">
+      <div class="column">
+        <form class="ui form" #loginForm="ngForm" (ngSubmit)="doLogin()">
+          <div class="field">
+            <label for="username">用户名：</label>
+            <input type="text" name="username" placeholder="请输入用户名" [(ngModel)]="user.username" required>
+          </div>
+          <div class="field">
+            <label for="password">密码：</label>
+            <input type="password" name="password" placeholder="请输入密码" [(ngModel)]="user.password" required>
+          </div>
+          <a href="">忘记密码？</a>
+          <button class="ui middle positive right floated labeled icon button" type="submit" [disabled]="!loginForm.form.valid">
+            <i class="checkmark icon"></i>登录
+          </button>
+        </form>
+      </div>
+      <div class="ui vertical divider">Or</div>
+      <div class="center aligned column">
+        <a class="ui big negative labeled icon button" routerLink="/user/register" routerLinkActive="active">
+          <i class="signup icon"></i>注册
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.grid.segment{
+  width: 90%;
+  margin: auto;
+  background: lightgray;
+}
+
+.content >.header{
+  color: gray;
+}

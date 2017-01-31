@@ -1,0 +1,23 @@
+<div class="ui container">
+  <div class="ui active dimmer" *ngIf="active">
+    <div class="ui text loader">加载中。。。</div>
+  </div>
+  <div class="ui wide vertical visible sidebar inverted labeled icon menu">
+    <a class="item" routerLink="game" ActiveRouterLink="active">
+      <i class="game icon"></i> Game
+    </a>
+    <a class="item" routerLink="info" ActiveRouterLink="active">
+      <i class="user icon"></i> User
+    </a>
+    <a class="item">
+      <i class="smile icon"></i> Friends
+    </a>
+    <a class="bottom item">
+      <i class="settings icon"></i> Settings
+    </a>
+  </div>
+  <div class="main">
+    <div class="ui centered dividing header"> 欢迎你：{{ currentUser?.username }}</div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

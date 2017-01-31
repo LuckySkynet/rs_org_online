@@ -1,0 +1,30 @@
+.ui.container{
+  width: 100%;
+  height: 100%
+}
+
+.sidebar{
+  width: 200px !important;
+}
+
+.main{
+  display: block;
+  left: 200px;
+  margin: auto;
+  position: absolute;
+  width: calc(100% - 200px) !important;
+  height: 100%;
+}
+
+.bottom.item{
+  text-align: center;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  width: 200px;
+}
+
+.ui.centered.dividing.header{
+  margin-top: 10px;
+  color: grey;
+}

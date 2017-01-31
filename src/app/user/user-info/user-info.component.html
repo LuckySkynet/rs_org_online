@@ -1,0 +1,22 @@
+<table class="ui purple table">
+  <thead>
+    <tr>
+      <th>编号</th>
+      <th>用户名</th>
+      <th>修改</th>
+      <th>切换用户</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{currentUser?.id}}</td>
+      <td>{{currentUser?.username}}</td>
+      <td>
+        <button class="ui negative button">Edit</button>
+      </td>
+      <td>
+        <button class="ui positive button" (click)="doLogout()">Logout</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,61 @@
+<div class="ui container">
+  <h2 class="ui centered text header">用户注册</h2>
+  <div class="ui centered grid">
+    <div class="twelve wide column">
+      <form class="ui form segment" [formGroup]="userFormGroup" (ngSubmit)="doRegister()" [ngClass]="{'error': !userFormGroup.valid }">
+        <div class="ui centered dividing header">
+          <i class="home icon"></i>
+        </div>
+        <div class="field">
+          <label for="username">用户名：</label>
+          <input type="text" name="username" placeholder="请输入用户名" formControlName="username">
+          <div *ngIf="formErrors.username" class="ui error message">
+            {{ formErrors.username }}
+          </div>
+        </div>
+        <div class="field">
+          <label for="password">密码：</label>
+          <input type="password" name="password" validateEqual="confirmPassword" reverse=true placeholder="请输入密码" formControlName="password">
+          <div *ngIf="formErrors.password" class="ui error message">
+            {{ formErrors.password }}
+          </div>
+        </div>
+        <div class="field">
+          <label for="confirmPassword">确认密码：</label>
+          <input type="password" name="confirmPassword" validateEqual="password" placeholder="请重新输入密码" formControlName="confirmPassword">
+          <div *ngIf="formErrors.confirmPassword" class="ui error message">
+            {{ formErrors.confirmPassword }}
+          </div>
+        </div>
+        <button type="submit" class="ui positive icon button" [disabled]="!userFormGroup.valid">
+        <i class="user icon"></i> 注册
+      </button>
+        <a class="ui negative right floated icon button" routerLink="/user/login" routerLinkActive="active">
+          <i class="reply icon"></i> 返回
+        </a>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="ui small modal" #feedback>
+  <div class="ui icon center aligned header">
+    <h2>用户注册</h2>
+    <i class="{{result==='Success'?'smile':'frown'}} icon"></i>
+  </div>
+  <div class="content">
+    <div class="ui active inverted dimmer" *ngIf="active">
+      <div class="ui text loader">正在努力注册中。。。</div>
+    </div>
+    <div class="ui {{result==='Success'?'positive':'negative '}} message">
+      <h3 *ngIf="result">
+        恭喜您注册成功！
+        <div class="ui divider"></div>
+        <p><strong>用户名:{{ userInfo.username }}&nbsp;密码：{{ userInfo.password }}</strong></p>
+      </h3>
+      <h3 *ngIf="!result">
+        注册失败，请重试！
+      </h3>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+/*居中样式*/
+.ui.container{
+  width: 50%;
+  height: 50%;
+  top: 0; left: 0; bottom: 0; right: 0;
+  position: absolute;
+  margin: auto;
+}
+
+.two.column.row{
+  position: relative;
+}
+
+.ui.centered.text.header{
+  color: gray;
+}
