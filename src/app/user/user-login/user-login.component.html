@@ -10,27 +10,34 @@
     </div>
     <div class="two column row">
       <div class="column">
-        <form class="ui form" #loginForm="ngForm" (ngSubmit)="doLogin()">
+        <form class="ui form" #loginForm="ngForm">
           <div class="field">
             <label for="username">用户名：</label>
-            <input type="text" name="username" placeholder="请输入用户名" [(ngModel)]="user.username" required>
+            <div class="ui left icon input">
+              <i class="user icon"></i>
+              <input type="text" name="username" placeholder="请输入用户名" [(ngModel)]="user.username" required>
+            </div>
           </div>
           <div class="field">
             <label for="password">密码：</label>
-            <input type="password" name="password" placeholder="请输入密码" [(ngModel)]="user.password" required>
+            <div class="ui left icon input">
+              <i class="lock icon"></i>
+              <input type="password" name="password" placeholder="请输入密码" [(ngModel)]="user.password" required>
+            </div>
           </div>
           <div class="g-recaptcha" data-sitekey="6Lf-NRQUAAAAAKeYh3zg2zS9P0I6ocaTKcBSqjCr"></div>
           <a href="">忘记密码？</a>
-          <button class="ui middle positive right floated labeled icon button" type="submit" [disabled]="!loginForm.form.valid">
-            <i class="checkmark icon"></i>登录
-          </button>
         </form>
       </div>
-      <div class="ui vertical divider">Or</div>
+      <div class="ui vertical divider" style="left:350px;margin-top:5px;">OR</div>
       <div class="center aligned column">
-        <a class="ui big negative labeled icon button" routerLink="/user/register" routerLinkActive="active">
+        <button class="ui big positive labeled icon button" (click)="doLogin()" [disabled]="!loginForm.form.valid">
+          <i class="checkmark icon"></i>登录
+        </button>
+        <br><br><br>
+        <button class="ui big negative labeled icon button" routerLink="/user/register" routerLinkActive="active">
           <i class="signup icon"></i>注册
-        </a>
+        </button>
       </div>
     </div>
   </div>
