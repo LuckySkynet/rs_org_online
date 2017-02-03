@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, Response } from '@angular/http';
+import { Http, Headers, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
@@ -9,11 +9,18 @@ import { User } from '../user-model';
 export class UserLoginService {
 
   private userLoginURL = 'app/users';
+  private reCaptchaURL = 'https://www.google.com/recaptcha/api/siteverify';
   private subject: Subject<User> = new Subject<User>();
 
   constructor(
     private http: Http
   ) { }
+
+  public reCaptcha(secret:string, response:string) {
+    let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+    let options = new RequestOptions({ headers: headers });
+    let queryString = `secret=${secret}&response=${response}`;
+  }
 
   public login(user: User) {
     console.log("user login service login...");
@@ -40,7 +47,7 @@ export class UserLoginService {
     this.subject.next(Object.assign({}));
   }
 
-  handleError(error: any): Promise<any> {
+  public handleError(error: any): Promise<any> {
     console.error('An error occurred', error);
     return Promise.reject(error.message || error);
   }
