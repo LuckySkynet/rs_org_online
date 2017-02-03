@@ -12,6 +12,7 @@ import { UserLoginService } from './user-login.service';
 export class UserLoginComponent implements OnInit {
 
   private user: User = new User();
+  private isSuccess: boolean = false;
 
   constructor(
     private userLoginService: UserLoginService,
@@ -22,8 +23,20 @@ export class UserLoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  public doCaptcha(){
+    let secret = '6Lf-NRQUAAAAAPfk2VCOQy6Oy9ZFSwD-wghbAFAW';
+    let response = this.el.nativeElement.querySelector('#g-recaptcha-response').value;
+    this.userLoginService.reCaptcha(secret, response)
+      .subscribe(
+        data => {
+          console.info(data);
+        },
+        error => console.error(error)
+      );
+  }
+
   public doLogin(): void {
-    console.info(this.el.nativeElement.querySelector('#g-recaptcha-response').value); 
+    this.doCaptcha();
     this.userLoginService.login(this.user)
       .subscribe(
       data => {

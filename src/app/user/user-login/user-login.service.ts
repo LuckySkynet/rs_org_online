@@ -16,10 +16,13 @@ export class UserLoginService {
     private http: Http
   ) { }
 
-  public reCaptcha(secret:string, response:string) {
+  public reCaptcha(secret: string, response: string) {
     let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
-    let options = new RequestOptions({ headers: headers });
+    let options = new RequestOptions({ method:'POST',headers: headers });
     let queryString = `secret=${secret}&response=${response}`;
+    return this.http.post(this.reCaptchaURL, queryString, options)
+      .map((response: Response) => response.json())
+      .catch(this.handleError);
   }
 
   public login(user: User) {
