@@ -19,6 +19,7 @@
             <label for="password">密码：</label>
             <input type="password" name="password" placeholder="请输入密码" [(ngModel)]="user.password" required>
           </div>
+          <div class="g-recaptcha" data-sitekey="6Lf-NRQUAAAAAKeYh3zg2zS9P0I6ocaTKcBSqjCr"></div>
           <a href="">忘记密码？</a>
           <button class="ui middle positive right floated labeled icon button" type="submit" [disabled]="!loginForm.form.valid">
             <i class="checkmark icon"></i>登录

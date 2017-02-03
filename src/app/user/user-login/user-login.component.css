@@ -14,3 +14,8 @@
 .ui.centered.text.header{
   color: gray;
 }
+
+.g-recaptcha{
+  margin-bottom: 14px;
+}
+

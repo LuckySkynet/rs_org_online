@@ -5,7 +5,7 @@ const GAME_ROUTES:Routes = [
   {
     path:'',
     component:GameComponent
-  }，
+  },
   {
     path:'hall/:no',
     component:GameComponent
