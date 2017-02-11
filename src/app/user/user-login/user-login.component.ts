@@ -36,7 +36,6 @@ export class UserLoginComponent implements OnInit {
   }
 
   public doLogin(): void {
-    this.doCaptcha();
     this.userLoginService.login(this.user)
       .subscribe(
       data => {

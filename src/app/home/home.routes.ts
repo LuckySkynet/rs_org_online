@@ -1,9 +1,9 @@
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { HomeComponent } from './home.component';
 import { UserInfoComponent } from '../user/user-info';
 
-const HOME_ROUTES: Routes = [
+export const HOME_ROUTES: Routes = [
   {
     path: '',
     component: HomeComponent,
@@ -23,6 +23,3 @@ const HOME_ROUTES: Routes = [
     ]
   }
 ]
-
-export default RouterModule.forChild(HOME_ROUTES);
-

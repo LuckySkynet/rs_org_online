@@ -1,6 +1,6 @@
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 
-const APP_ROUTES:Routes = [
+export const APP_ROUTES:Routes = [
   {
     path:'',
     redirectTo:'user',
@@ -15,5 +15,3 @@ const APP_ROUTES:Routes = [
     loadChildren:'app/home/home.module#HomeModule'
   }
 ]
-
-export default RouterModule.forRoot(APP_ROUTES,{useHash:true})

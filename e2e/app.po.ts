@@ -1,6 +1,6 @@
 import { browser, element, by } from 'protractor';
 
-export class RsOrgOnlinePage {
+export class AngularTestPage {
   navigateTo() {
     return browser.get('/');
   }

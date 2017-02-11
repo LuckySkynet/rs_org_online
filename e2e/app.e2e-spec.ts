@@ -1,10 +1,10 @@
-import { RsOrgOnlinePage } from './app.po';
+import { AngularTestPage } from './app.po';
 
-describe('rs-org-online App', function() {
-  let page: RsOrgOnlinePage;
+describe('angular-test App', function() {
+  let page: AngularTestPage;
 
   beforeEach(() => {
-    page = new RsOrgOnlinePage();
+    page = new AngularTestPage();
   });
 
   it('should display message saying app works', () => {

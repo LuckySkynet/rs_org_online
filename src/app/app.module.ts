@@ -1,10 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { HttpModule } from '@angular/http';
-
+import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import ROUTES from './app.routes';
+import { APP_ROUTES } from './app.routes';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
@@ -15,10 +14,9 @@ import { InMemoryDataService } from './in-memory-data.service';
   imports: [
     BrowserModule,
     HttpModule,
-    ROUTES,
+    RouterModule.forRoot(APP_ROUTES),
     InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

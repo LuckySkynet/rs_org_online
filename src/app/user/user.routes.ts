@@ -1,8 +1,8 @@
-import { Routes, RouterModule } from '@angular/router';
+import { Routes } from '@angular/router';
 import { UserLoginComponent } from './user-login';
 import { UserRegisterComponent } from './user-register';
 
-const USER_ROUTES: Routes = [
+export const USER_ROUTES: Routes = [
   {
     path: '',
     component: UserLoginComponent
@@ -17,4 +17,3 @@ const USER_ROUTES: Routes = [
   }
 ]
 
-export default RouterModule.forChild(USER_ROUTES);
